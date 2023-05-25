@@ -1,6 +1,7 @@
 // Package woocommerce is a Woo Commerce lib.
 //
 // Quick start:
+//
 //	b, err := os.ReadFile("./config/config_test.json")
 //	if err != nil {
 //	   panic(fmt.Sprintf("Read config error: %s", err.Error()))
@@ -31,9 +32,9 @@ import (
 	"errors"
 	"fmt"
 	"github.com/go-resty/resty/v2"
-	"github.com/hiscaler/gox/inx"
-	"github.com/hiscaler/gox/stringx"
-	"github.com/hiscaler/woocommerce-go/config"
+	"github.com/itbellissimo/gox/inx"
+	"github.com/itbellissimo/gox/stringx"
+	"github.com/itbellissimo/woocommerce-go/config"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/json-iterator/go/extra"
 	"log"
