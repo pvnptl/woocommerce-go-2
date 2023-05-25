@@ -14,7 +14,7 @@ import (
 type customerService service
 
 type CustomersQueryParams struct {
-	queryParams
+	QueryParams
 	Search  string `url:"search,omitempty"`
 	Exclude []int  `url:"exclude,omitempty"`
 	Include []int  `url:"include,omitempty"`

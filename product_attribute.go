@@ -11,7 +11,7 @@ import (
 type productAttributeService service
 
 type ProductAttributesQueryParams struct {
-	queryParams
+	QueryParams
 }
 
 func (m ProductAttributesQueryParams) Validate() error {

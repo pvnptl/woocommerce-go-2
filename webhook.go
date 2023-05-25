@@ -12,7 +12,7 @@ import (
 type webhookService service
 
 type WebhooksQueryParams struct {
-	queryParams
+	QueryParams
 	Search  string `url:"search"`
 	After   string `url:"after"`
 	Before  string `url:"before"`

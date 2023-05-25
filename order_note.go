@@ -11,7 +11,7 @@ import (
 type orderNoteService service
 
 type OrderNotesQueryParams struct {
-	queryParams
+	QueryParams
 	Type string `url:"type,omitempty"`
 }
 

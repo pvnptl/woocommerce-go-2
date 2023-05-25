@@ -13,7 +13,7 @@ import (
 type couponService service
 
 type CouponsQueryParams struct {
-	queryParams
+	QueryParams
 	Search  string `url:"search,omitempty"`
 	After   string `url:"after,omitempty"`
 	Before  string `url:"before,omitempty"`

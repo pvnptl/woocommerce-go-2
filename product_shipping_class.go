@@ -11,7 +11,7 @@ import (
 type productShippingClassService service
 
 type ProductShippingClassesQueryParams struct {
-	queryParams
+	QueryParams
 	Search    string `url:"search,omitempty"`
 	Exclude   []int  `url:"exclude,omitempty"`
 	Include   []int  `url:"include,omitempty"`
