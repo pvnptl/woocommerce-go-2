@@ -2,6 +2,7 @@ package woocommerce
 
 import (
 	"errors"
+	"github.com/brianvoe/gofakeit/v6"
 	"github.com/hiscaler/gox/jsonx"
 	"github.com/hiscaler/gox/randx"
 	"github.com/itbellissimo/woocommerce-go/entity"

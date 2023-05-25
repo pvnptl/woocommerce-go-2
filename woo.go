@@ -31,6 +31,7 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
+	"github.com/go-resty/resty/v2"
 	"github.com/hiscaler/gox/inx"
 	"github.com/hiscaler/gox/stringx"
 	"github.com/itbellissimo/woocommerce-go/config"
