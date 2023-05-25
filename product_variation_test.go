@@ -1,7 +1,7 @@
 package woocommerce
 
 import (
-	"github.com/itbellissimo/gox/jsonx"
+	"github.com/hiscaler/gox/jsonx"
 	"testing"
 )
 

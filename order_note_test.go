@@ -2,8 +2,7 @@ package woocommerce
 
 import (
 	"errors"
-	"github.com/brianvoe/gofakeit/v6"
-	"github.com/itbellissimo/gox/jsonx"
+	"github.com/hiscaler/gox/jsonx"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
