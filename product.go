@@ -133,7 +133,7 @@ type CreateProductRequest struct {
 	Categories        []entity.ProductCategory         `json:"categories,omitempty"`
 	Tags              []entity.ProductTag              `json:"tags,omitempty"`
 	Images            []entity.ProductImage            `json:"images,omitempty"`
-	Attributes        []entity.ProductAttribute        `json:"attributes,omitempty"`
+	Attributes        []entity.ProductAttributeItem        `json:"attributes,omitempty"`
 	DefaultAttributes []entity.ProductDefaultAttribute `json:"default_attributes,omitempty"`
 	GroupedProducts   []int                            `json:"grouped_products,omitempty"`
 	MenuOrder         int                              `json:"menu_order,omitempty"`
