@@ -1,4 +1,4 @@
-module github.com/itbellissimo/woocommerce-go
+module github.com/rafayhingoro/woocommerce-go
 
 go 1.17
 

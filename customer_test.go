@@ -4,7 +4,7 @@ import (
 	"errors"
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/hiscaler/gox/jsonx"
-	"github.com/itbellissimo/woocommerce-go/entity"
+	"github.com/rafayhingoro/woocommerce-go/entity"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

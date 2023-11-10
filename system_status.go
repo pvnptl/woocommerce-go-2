@@ -1,7 +1,7 @@
 package woocommerce
 
 import (
-	"github.com/itbellissimo/woocommerce-go/entity"
+	"github.com/rafayhingoro/woocommerce-go/entity"
 	jsoniter "github.com/json-iterator/go"
 )
 

@@ -2,7 +2,7 @@ package woocommerce
 
 import (
 	"fmt"
-	"github.com/itbellissimo/woocommerce-go/config"
+	"github.com/rafayhingoro/woocommerce-go/config"
 	jsoniter "github.com/json-iterator/go"
 	"os"
 	"testing"
