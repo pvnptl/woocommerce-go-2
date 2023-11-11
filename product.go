@@ -1,10 +1,12 @@
 package woocommerce
 
 import (
+	"errors"
 	"fmt"
+
 	validation "github.com/go-ozzo/ozzo-validation/v4"
-	"github.com/rafayhingoro/woocommerce-go/entity"
 	jsoniter "github.com/json-iterator/go"
+	"github.com/rafayhingoro/woocommerce-go/entity"
 )
 
 type productService service
@@ -133,7 +135,7 @@ type CreateProductRequest struct {
 	Categories        []entity.ProductCategory         `json:"categories,omitempty"`
 	Tags              []entity.ProductTag              `json:"tags,omitempty"`
 	Images            []entity.ProductImage            `json:"images,omitempty"`
-	Attributes        []entity.ProductAttributeItem        `json:"attributes,omitempty"`
+	Attributes        []entity.ProductAttributeItem    `json:"attributes,omitempty"`
 	DefaultAttributes []entity.ProductDefaultAttribute `json:"default_attributes,omitempty"`
 	GroupedProducts   []int                            `json:"grouped_products,omitempty"`
 	MenuOrder         int                              `json:"menu_order,omitempty"`
@@ -198,6 +200,46 @@ func (s productService) Delete(id int, force bool) (item entity.Product, err err
 
 	if resp.IsSuccess() {
 		err = jsoniter.Unmarshal(resp.Body(), &item)
+	}
+	return
+}
+
+type BatchProductCreateItem = CreateProductRequest
+type BatchProductUpdateItem struct {
+	ID int `json:"id"`
+	BatchProductCreateItem
+}
+type BatchProductRequest struct {
+	Create []BatchProductCreateItem `json:"create,omitempty"`
+	Update []BatchProductUpdateItem `json:"update,omitempty"`
+	Delete []int                    `json:"delete,omitempty"`
+}
+
+func (m BatchProductRequest) Validate() error {
+	if len(m.Create) == 0 && len(m.Update) == 0 && len(m.Delete) == 0 {
+		return errors.New("Invalid request data")
+	}
+	return nil
+}
+
+type BatchProductResult struct {
+	Create []entity.Product `json:"create"`
+	Update []entity.Product `json:"update"`
+	Delete []entity.Product `json:"delete"`
+}
+
+func (s productService) Batch(req BatchProductRequest) (res BatchProductResult, err error) {
+	if err = req.Validate(); err != nil {
+		return
+	}
+
+	resp, err := s.httpClient.R().SetBody(req).Post("/products/batch")
+	if err != nil {
+		return
+	}
+
+	if resp.IsSuccess() {
+		err = jsoniter.Unmarshal(resp.Body(), &res)
 	}
 	return
 }
