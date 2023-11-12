@@ -172,6 +172,7 @@ Service Name: wooClient.Service.Product
 Methods:
 
 - All
+- Batch
 - Create
 - Delete
 - One

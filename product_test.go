@@ -63,4 +63,42 @@ func TestProductService_CreateUpdateDelete(t *testing.T) {
 	if !errors.Is(err, ErrNotFound) {
 		t.Fatalf("wooClient.Services.Product.Delete(%d) failed", productId)
 	}
+
+	// Batch
+	_, err = wooClient.Services.Product.Batch(productId, true)
+	if err != nil {
+		t.Fatalf("wooClient.Services.Product.Delete error: %s", err.Error())
+	}
+	_, err = wooClient.Services.Product.One(productId)
+	if !errors.Is(err, ErrNotFound) {
+		t.Fatalf("wooClient.Services.Product.Delete(%d) failed", productId)
+	}
+}
+
+
+func TestProductService_Batch(t *testing.T) {
+	n := 3
+	createRequests := make([]BatchProductCreateItem, n)
+	names := make([]string, n)
+	for i := 0; i < n; i++ {
+		req := BatchProductCreateItem{
+			Name:        gofakeit.Word(),
+			Description: gofakeit.Address().Address,
+		}
+		createRequests[i] = req
+		names[i] = req.Name
+	}
+	batchReq := BatchProductRequest{
+		Create: createRequests,
+	}
+	result, err := wooClient.Services.Product.Batch(batchReq)
+	if err != nil {
+		t.Fatalf("wooClient.Services.Product.Batch() error: %s", err.Error())
+	}
+	assert.Equal(t, n, len(result.Create), "Batch create return len")
+	returnNames := make([]string, 0)
+	for _, d := range result.Create {
+		returnNames = append(returnNames, d.Name)
+	}
+	assert.Equal(t, names, returnNames, "check names is equal")
 }

@@ -1,6 +1,20 @@
 WooCommerce for golang Change Log
 =================================
 
+## [unreleased]
+
+- New: Batch Product Create/Update/Delete
+
+## 1.0.7
+
+- Bug: update module base to make this code usable 
+
+## 1.0.6 
+
+- FIX: Product Attribute Item was referred to wrong struct
+
+## 1.0.5 
+
 ## 1.0.4 under development
 
 -Bug: #1 Fixed signature error if query params include array value
