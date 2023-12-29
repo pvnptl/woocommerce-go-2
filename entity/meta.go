@@ -1,7 +1,7 @@
 package entity
 
-type Meta struct {
-	ID    int    `json:"id"`
-	Key   string `json:"key"`
-	Value string `json:"value"`
+type MetaData struct {
+	ID    int64       `json:"id,omitempty"`
+	Key   string      `json:"key,omitempty"`
+	Value interface{} `json:"value,omitempty"`
 }
