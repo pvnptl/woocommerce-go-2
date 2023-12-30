@@ -221,7 +221,7 @@ func NewClient(config config.Config) *WooCommerce {
 				}
 			}
 			if err != nil {
-				logger.Printf("OnAfterResponse error: %s", err.Error())
+				return err
 			}
 			return
 		})
