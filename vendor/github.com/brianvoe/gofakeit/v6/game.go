@@ -17,13 +17,13 @@ func gamertag(r *rand.Rand) string {
 	num := number(r, 1, 4)
 	switch num {
 	case 1:
-		str = fmt.Sprintf("%s%ser", strings.Title(nounConcrete(r)), strings.Title(verbAction(r)))
+		str = fmt.Sprintf("%s%ser", title(nounConcrete(r)), title(verbAction(r)))
 	case 2:
-		str = fmt.Sprintf("%s%s", strings.Title(adjectiveDescriptive(r)), strings.Title(animal(r)))
+		str = fmt.Sprintf("%s%s", title(adjectiveDescriptive(r)), title(animal(r)))
 	case 3:
-		str = fmt.Sprintf("%s%s", strings.Title(adjectiveDescriptive(r)), strings.Title(nounConcrete(r)))
+		str = fmt.Sprintf("%s%s", title(adjectiveDescriptive(r)), title(nounConcrete(r)))
 	case 4:
-		str = fmt.Sprintf("%s%s", strings.Title(fruit(r)), strings.Title(adjectiveDescriptive(r)))
+		str = fmt.Sprintf("%s%s", title(fruit(r)), title(adjectiveDescriptive(r)))
 	}
 
 	// Randomly determine if we should add a number
@@ -67,10 +67,10 @@ func addGameLookup() {
 	AddFuncLookup("gamertag", Info{
 		Display:     "Gamertag",
 		Category:    "game",
-		Description: "Random gamertag",
+		Description: "User-selected online username or alias used for identification in games",
 		Example:     "footinterpret63",
 		Output:      "string",
-		Generate: func(r *rand.Rand, m *MapParams, info *Info) (interface{}, error) {
+		Generate: func(r *rand.Rand, m *MapParams, info *Info) (any, error) {
 			return gamertag(r), nil
 		},
 	})
@@ -78,14 +78,14 @@ func addGameLookup() {
 	AddFuncLookup("dice", Info{
 		Display:     "Dice",
 		Category:    "game",
-		Description: "Random dice outputs",
-		Example:     "footinterpret63",
+		Description: "Small, cube-shaped objects used in games of chance for random outcomes",
+		Example:     "[5, 2, 3]",
 		Output:      "[]uint",
 		Params: []Param{
 			{Field: "numdice", Display: "Number of Dice", Type: "uint", Default: "1", Description: "Number of dice to roll"},
 			{Field: "sides", Display: "Number of Sides", Type: "[]uint", Default: "[6]", Description: "Number of sides on each dice"},
 		},
-		Generate: func(r *rand.Rand, m *MapParams, info *Info) (interface{}, error) {
+		Generate: func(r *rand.Rand, m *MapParams, info *Info) (any, error) {
 			numDice, err := info.GetUint(m, "numdice")
 			if err != nil {
 				return nil, err

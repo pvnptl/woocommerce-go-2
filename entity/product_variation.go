@@ -51,5 +51,5 @@ type ProductVariation struct {
 	Image           *ProductImage               `json:"image"`
 	Attributes      []ProductVariationAttribute `json:"attributes"`
 	MenuOrder       int                         `json:"menu_order"`
-	MetaData        []Meta                      `json:"meta_data"`
+	MetaData        []MetaData                  `json:"meta_data"`
 }
