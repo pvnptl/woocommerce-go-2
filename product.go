@@ -104,8 +104,8 @@ type CreateProductRequest struct {
 	Description       string                           `json:"description,omitempty"`
 	ShortDescription  string                           `json:"short_description,omitempty"`
 	SKU               string                           `json:"sku,omitempty"`
-	RegularPrice      float64                          `json:"regular_price,string,omitempty"`
-	SalePrice         float64                          `json:"sale_price,string,omitempty"`
+	RegularPrice      string                           `json:"regular_price,string,omitempty"`
+	SalePrice         string                           `json:"sale_price,string,omitempty"`
 	DateOnSaleFrom    string                           `json:"date_on_sale_from,omitempty"`
 	DateOnSaleFromGMT string                           `json:"date_on_sale_from_gmt,omitempty"`
 	DateOnSaleTo      string                           `json:"date_on_sale_to,omitempty"`
