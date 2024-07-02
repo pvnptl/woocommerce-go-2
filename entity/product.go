@@ -72,7 +72,7 @@ type Product struct {
 	Variations        []int                     `json:"variations"`
 	GroupedProducts   []int                     `json:"grouped_products"`
 	MenuOrder         int                       `json:"menu_order"`
-	MetaData          []Meta                    `json:"meta_data"`
+	MetaData          []MetaData                `json:"meta_data"`
 }
 
 // ProductAttributeItem product attribute properties

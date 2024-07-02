@@ -2,9 +2,10 @@ package woocommerce
 
 import (
 	"errors"
+	"testing"
+
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestProductService_All(t *testing.T) {
@@ -64,17 +65,11 @@ func TestProductService_CreateUpdateDelete(t *testing.T) {
 		t.Fatalf("wooClient.Services.Product.Delete(%d) failed", productId)
 	}
 
-	// Batch
-	_, err = wooClient.Services.Product.Batch(productId, true)
-	if err != nil {
-		t.Fatalf("wooClient.Services.Product.Delete error: %s", err.Error())
-	}
 	_, err = wooClient.Services.Product.One(productId)
 	if !errors.Is(err, ErrNotFound) {
 		t.Fatalf("wooClient.Services.Product.Delete(%d) failed", productId)
 	}
 }
-
 
 func TestProductService_Batch(t *testing.T) {
 	n := 3

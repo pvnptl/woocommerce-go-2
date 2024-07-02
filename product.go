@@ -139,7 +139,7 @@ type CreateProductRequest struct {
 	DefaultAttributes []entity.ProductDefaultAttribute `json:"default_attributes,omitempty"`
 	GroupedProducts   []int                            `json:"grouped_products,omitempty"`
 	MenuOrder         int                              `json:"menu_order,omitempty"`
-	MetaData          []entity.Meta                    `json:"meta_data,omitempty"`
+	MetaData          []entity.MetaData                `json:"meta_data,omitempty"`
 }
 
 func (m CreateProductRequest) Validate() error {

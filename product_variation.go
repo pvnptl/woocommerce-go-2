@@ -3,9 +3,10 @@ package woocommerce
 import (
 	"errors"
 	"fmt"
+
 	validation "github.com/go-ozzo/ozzo-validation/v4"
-	"github.com/rafayhingoro/woocommerce-go/entity"
 	jsoniter "github.com/json-iterator/go"
+	"github.com/rafayhingoro/woocommerce-go/entity"
 )
 
 type productVariationService service
@@ -113,7 +114,7 @@ type CreateProductVariationRequest struct {
 	Image          *entity.ProductImage               `json:"image,omitempty"`
 	Attributes     []entity.ProductVariationAttribute `json:"attributes,omitempty"`
 	MenuOrder      int                                `json:"menu_order,omitempty"`
-	MetaData       []entity.Meta                      `json:"meta_data,omitempty"`
+	MetaData       []entity.MetaData                  `json:"meta_data,omitempty"`
 }
 
 func (m CreateProductVariationRequest) Validate() error {
